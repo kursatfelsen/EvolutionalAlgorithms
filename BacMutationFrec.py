@@ -44,24 +44,21 @@ z = int(input("Kaç Döngü Olsun:"))
 print(LivingBacterias)
 i3 = 0 #Döngü Sayacı
 
+Mutasyonlubakterisayisi = 0.
+Mutasyonsuzbakterisayisi = 0.
+
 while (i3 < z):
     for i in LivingBacterias:
+        gecici=i
         LiveAndDeath(i)
-        Produce(i)
+        if i==gecici:
+            Produce(i)
+    for i in LivingBacterias:
+        if (i.find("x") == 0):
+            Mutasyonlubakterisayisi += 1
+        else:
+            Mutasyonsuzbakterisayisi += 1
+    print("****************************\nMutasyonlu Bakteri sayısı:{}\nMutasyonu Olmayan Bakteri Sayısı:{}".format(Mutasyonlubakterisayisi,
+                                                                                     Mutasyonsuzbakterisayisi))
+    print("Oran:{}".format(Mutasyonlubakterisayisi/(Mutasyonsuzbakterisayisi+Mutasyonsuzbakterisayisi)))
     i3+=1
-
-
-
-
-Mutasyonlubakterisayisi = 0
-Mutasyonsuzbakterisayisi = 0
-
-for i in LivingBacterias:
-    if (i.find("x") == 0):
-        Mutasyonlubakterisayisi+=1
-    else:
-        Mutasyonsuzbakterisayisi+=1
-
-print("Başlangıçtaki Bakteri Sayısı:{}\nGeçen Cycle Sayısı:{}".format(x,z))
-print("{}. Cycle'dan Sonraki Bakteri Sayısı:{}".format(z,len(LivingBacterias)))
-print("Mutasyonlu Bakteri sayısı:{}\nMutasyonu Olmayan Bakteri Sayısı:{}".format(Mutasyonlubakterisayisi,Mutasyonsuzbakterisayisi))
